@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+ {% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+   
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+         form {
+      padding: 20px;
+      background-color: white;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      text-align: center;
+      margin-top: 250px;
+    }
+       #fstname,#lstname,#mail,#pwd
+        {
+            width: calc(30% - 20px);
+            padding: 5px;
+            text-align: center;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+           
+            border-radius: 4px;
+       }
+    </style>
+</head>
+<body>
+   
+    <form text-align="center" method="POST">{% csrf_token %}
+         <h1 style="margin-top: 10px;" >Registration</h1>
+    <label >First name: </label>
+    <input type="text" name="firstname" id="fstname" required>
+    <br>
+    <label >Last name: </label>
+    <input type="text" name="lastname" id="lstname" required>
+    <br>
+    <label style="margin-right: 40px;">Email: </label>
+    <input type="email" name="email" id="mail" required >
+    <br>
+    <label style="margin-left: 10px;">password: </label>
+    <input type="password" name="password" id="pwd" required>
+    <br>
+   <div style=" justify-content:flex-start; width: 60%; margin: auto; padding-top: 10px;">
+    <button type="submit">Register</button>
+    <label style="margin-left: 150px;">Already user? <a href="{% url 'user_login' %}">Login</a> here</label>
+    </div>
+
+    </form>
+
+</body>
+</html>
+{% endblock %}

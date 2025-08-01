@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .grid-container{
+            display: grid;
+            grid-template-columns: repeat(auto-fit,minmax(150px,1fr));
+            gap: 20px;
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h2>Home page</h2>
+    <div class="grid-container">
+        {% for i in all_bike_details %}
+             
+            <div class="grid-item">
+            <a href="{{i.2}}" >
+                <img src="{{i.1}}"> 
+                <span>{{i.0}}</span>
+            </a>
+           </div>
+        
+        
+        {% endfor %}
+    </div>
+   
+
+</body>
+</html>
+
+{% endblock %}
