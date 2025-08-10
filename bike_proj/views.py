@@ -39,7 +39,7 @@ def user_login(request):
 
 ######################################################################################################
 #*************************  for all bikes  **********************************************************
-######################################################################################################
+########################################################################################################
 
 def home(request):
     all_bURL="https://www.bikewale.com/"
@@ -66,7 +66,7 @@ def home(request):
         final_link=all_bURL + a_tag
         all_bike_links.append(final_link)
 
-    all_bikes=zip(all_bike_names,all_bike_images,all_bike_links)
+    all_bikes=zip(all_bike_names,all_bike_images,all_bike_links)  
 
     return render(request,"home.html",{"all_bike_details":all_bikes})
 
