@@ -1,0 +1,35 @@
+
+{% extends 'base.html' %}
+<h2>login page</h2>
+{% load static%}
+{% block text %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" 
+          content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <style>
+        .formproperties{
+            text-align: center;
+            margin-top: 100px;
+        }
+    </style>
+</head>
+<body>
+   
+    <div class="formproperties">
+        <form method="POST"> {% csrf_token %}
+             <h2>Welcome to Blog Application</h2>
+            <label for="username">Username:</label><br>
+            <input type="text"  name="username"><br><br>
+            <label for="password">Password:</label><br>
+            <input type="password"  name="password"><br><br>
+            <button type="submit" style="margin-left: 0px;">Submit</button>
+            <p style="margin-left: 300px;"> Not yet registered .? <a href="{% url 'register' %}"> register</a> here</p>
+        </form>
+    </div>
+    
+</body>
+{% endblock text %}

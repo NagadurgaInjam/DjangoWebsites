@@ -1,0 +1,64 @@
+{% extends 'base.html'  %}
+
+{% load static %}
+{% block text %}
+
+<head>
+  <style>
+    table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+  </style>
+  <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<h2 style="background-color: aqua;">home page</h2>
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">MySite</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" 
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'new_blog' %}">New Blog</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+
+
+<table border="1" style="margin: 0 auto;">
+  <thead>
+    <tr>
+      <th style="width: 200px;">Title</th>
+      <th style="width: 600px;">Content</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for i in blogs %}
+    <tr>
+      <td>{{i.title}} </td>
+      <td>{{i.content}} </td>
+      <td> <a href="{% url 'delete_blog' i.pk %}" class="btn btn-danger"><i class="fa fa-trash"></i></a></td>
+      <td> <a href="{% url 'edit_blog' i.pk %}" class="btn btn-primary" ><i class="fa fa-pencil"></i></a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock text %}
+
