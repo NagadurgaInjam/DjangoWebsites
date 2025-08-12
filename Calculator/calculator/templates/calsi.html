@@ -1,0 +1,18 @@
+<form method="post"> {% csrf_token %}
+  <label>First name:</label><br>
+  <input type="text" name="fn"><br>
+  <label>Last name:</label><br>
+  <input type="text" name="ln"><br>
+  <label>Operator:</label>
+  <select name="op">
+    <option value="+">Add</option>
+    <option value="-">Sub</option>
+    <option value="*">Mul</option>
+    <option value="/">Div</option>
+  </select><br>
+  <br>
+  <button type="submit">Submit</button> <br>
+<br>
+  <label>Output:</label><br>
+  <input value="{{op}}">
+</form>
